@@ -40,8 +40,12 @@ const Curent = () => {
 
     const render = () => {
         if (loading)
-            return <p className='text-2xl text-center space-y-3'>Loading ...</p>
-
+            return (
+                <div className='text-center space-y-3'>
+                <p className='text-2xl font-semibold'>Current price</p>
+                <p className='text-2xl'>Loading ...</p>
+            </div>
+            )
         else if (error)
             return <p>There was some error !</p>
         else
@@ -49,7 +53,7 @@ const Curent = () => {
                 <div className='text-center space-y-3'>
                     <p className='text-2xl font-semibold'>Current price</p>
                     <p className='text-2xl'>{curp?.bpi.THB.rate_float.toLocaleString()} THB</p>
-                    <p> {(curp?.time.updated)} </p>
+                    <p> (Last updated {curp?.time.updated}) </p>
                 </div>
             )
     }
@@ -58,7 +62,6 @@ const Curent = () => {
 
     return (
         render()
-
     )
 }
 
